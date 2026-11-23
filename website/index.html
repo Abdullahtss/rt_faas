@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RT-FAAS | Real-Time Transaction Fraud Alerting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Figtree:wght@400;560;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="home">
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="nav-float">
+    <a class="logo" href="/">RT<span>·</span>FAAS</a>
+    <nav>
+      <a class="active" href="/">Home</a>
+      <a href="/console">Live console</a>
+      <a href="/search">Search &amp; audit</a>
+      <a href="/monitor">Model monitor</a>
+    </nav>
+    <a class="nav-cta" href="/console">Open desk</a>
+  </header>
+
+  <section class="hero-split">
+    <div class="copy">
+      <p class="eyebrow">FSPM desk · FAST NUCES</p>
+      <h1>Catch the odd payment <em>before it clears.</em></h1>
+      <p class="lead">
+        A small analyst website. Payments arrive as they happen, three rules
+        score them out loud, and anything above 70 lands on the desk in under a second.
+      </p>
+      <div class="hero-actions">
+        <a class="btn primary" href="/console">Sit at the console</a>
+        <a class="btn ghost" href="/search">Look through the log</a>
+      </div>
+      <ul class="ticks">
+        <li>Velocity, travel, amount — each score shows why</li>
+        <li>Approve or block, then export the audit</li>
+      </ul>
+    </div>
+
+    <div class="stage" id="stage">
+      <div class="world">
+        <div class="ring r1"></div>
+        <div class="ring r2"></div>
+        <div class="orb"></div>
+        <article class="chip c1">
+          <small>ACC****1004 · Lahore</small>
+          <strong>PKR 4,280</strong>
+          <em class="ok">score 12 · quiet</em>
+        </article>
+        <article class="chip c2">
+          <small>ACC****1015 · then London</small>
+          <strong>PKR 61,400</strong>
+          <em class="hot">score 97 · travel + amount</em>
+        </article>
+        <article class="chip c3">
+          <small>8 hits in 4 minutes</small>
+          <strong>velocity +32</strong>
+          <em>waiting in the review pile</em>
+        </article>
+        <div class="coin">RT</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="strip">
+    <div><b>&lt; 1s</b><span>alert on the desk</span></div>
+    <div><b>0–100</b><span>score you can explain</span></div>
+    <div><b>3</b><span>rules, not a black box</span></div>
+    <div><b>CSV</b><span>for the write-up later</span></div>
+  </section>
+
+  <section class="steps">
+    <h2>What the desk actually does</h2>
+    <div class="step-row">
+      <article class="tilt">
+        <span>01</span>
+        <h3>Payments walk in</h3>
+        <p>Press Play BankSim. The desk replays the public BankSim file: card payments from a Spanish-bank simulator, all in Madrid, with the file’s own fraud flag.</p>
+      </article>
+      <article class="tilt late">
+        <span>02</span>
+        <h3>Rules argue in public</h3>
+        <p>Too many taps, a city jump that a plane could not make, an amount way above the account’s usual. Each one adds points and a sentence.</p>
+      </article>
+      <article class="tilt later">
+        <span>03</span>
+        <h3>Someone decides</h3>
+        <p>Low stays on the tape. Medium waits. High flashes. You approve or block, and the note sticks to the record.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="levels">
+    <h2>How loud it gets</h2>
+    <div class="level-board">
+      <div class="lb low"><b>Low</b><span>0–39</span><p>Logged. No bell.</p></div>
+      <div class="lb med"><b>Medium</b><span>40–69</span><p>Sits in the review pile.</p></div>
+      <div class="lb high"><b>High</b><span>70–100</span><p>On screen, right away.</p></div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    Real-Time Transaction Fraud &amp; Anomaly Alerting System · FSPM (BCS-9B) · FAST NUCES
+  </footer>
+  <script src="/js/motion.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: rtfaas
+      POSTGRES_PASSWORD: rtfaas
+      POSTGRES_DB: rtfaas
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U rtfaas"]
+      interval: 5s
+      retries: 10
+
+  api:
+    build: .
+    environment:
+      DATABASE_URL: postgresql+asyncpg://rtfaas:rtfaas@postgres:5432/rtfaas
+      RTFAAS_TOKEN: rtfaas-dev-token
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy

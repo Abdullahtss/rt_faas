@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Search &amp; audit | RT-FAAS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560&family=Figtree:wght@400;560;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="desk">
+  <div class="grain" aria-hidden="true"></div>
+  <header class="nav-float">
+    <a class="logo" href="/">RT<span>·</span>FAAS</a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/console">Live console</a>
+      <a class="active" href="/search">Search &amp; audit</a>
+      <a href="/monitor">Model monitor</a>
+    </nav>
+    <a class="nav-cta" href="/console">Back to desk</a>
+  </header>
+
+  <div class="toolbar">
+    <div class="toolbar-left">
+      <h1>Search &amp; audit</h1>
+    </div>
+  </div>
+
+  <main class="search-wrap">
+    <form id="search-form" class="filters">
+      <input id="account" placeholder="Account ID e.g. ACC-1001" />
+      <select id="level">
+        <option value="">Any risk</option>
+        <option>High</option>
+        <option>Medium</option>
+        <option>Low</option>
+      </select>
+      <input id="from" type="datetime-local" />
+      <input id="to" type="datetime-local" />
+      <button class="primary" type="submit">Search</button>
+      <button id="btn-csv" type="button">Export CSV</button>
+    </form>
+    <p id="banner" class="banner hidden"></p>
+    <div id="results" class="list"></div>
+  </main>
+
+  <footer class="site-footer">Filter by account, risk level or date, then export CSV for the audit trail.</footer>
+  <script src="/js/api.js"></script>
+  <script src="/js/search.js"></script>
+</body>
+</html>

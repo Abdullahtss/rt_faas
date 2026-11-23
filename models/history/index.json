@@ -1,0 +1,28 @@
+[
+  {
+    "version": 1,
+    "trained_at": "2026-11-23 23:20:55",
+    "source": "train_model.py",
+    "model": "gradient_boosting",
+    "pr_auc": 0.9645,
+    "precision": 0.9111,
+    "recall": 0.89,
+    "threshold": 0.9556,
+    "feedback_used": 0,
+    "promoted": true,
+    "note": "trained from the command line"
+  },
+  {
+    "version": 2,
+    "trained_at": "2026-11-23 23:27:02",
+    "source": "retrain button",
+    "model": "gradient_boosting",
+    "pr_auc": 0.9633,
+    "precision": 0.9304,
+    "recall": 0.8606,
+    "threshold": 0.972,
+    "feedback_used": 5,
+    "promoted": true,
+    "note": "PR-AUC 0.9633 vs 0.9645: kept or improved"
+  }
+]

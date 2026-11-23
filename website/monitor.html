@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Model monitor | RT-FAAS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560&family=Figtree:wght@400;560;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="desk">
+  <div class="grain" aria-hidden="true"></div>
+  <header class="nav-float">
+    <a class="logo" href="/">RT<span>·</span>FAAS</a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/console">Live console</a>
+      <a href="/search">Search &amp; audit</a>
+      <a class="active" href="/monitor">Model monitor</a>
+    </nav>
+    <a class="nav-cta" href="/console">Back to desk</a>
+  </header>
+
+  <div class="toolbar">
+    <div class="toolbar-left">
+      <h1>Model monitor</h1>
+      <span class="meta">serving <b id="m-version">—</b></span>
+      <span class="meta">threshold <b id="m-threshold">—</b></span>
+      <span class="meta">updated <b id="m-updated">—</b></span>
+    </div>
+  </div>
+  <p id="banner" class="banner hidden"></p>
+
+  <main class="mon">
+    <section class="panel">
+      <h2>Serving model · held-out test days</h2>
+      <div class="kpis" id="model-kpis"></div>
+      <p class="note" id="model-note"></p>
+    </section>
+
+    <section class="panel wide">
+      <h2>Alert threshold · precision vs recall on the test days</h2>
+      <div class="slider-row">
+        <label for="thr">Threshold</label>
+        <input id="thr" type="range" min="0" max="1" step="1" value="0" />
+        <output id="thr-out" for="thr">—</output>
+        <button id="thr-apply" class="primary" type="button">Apply live</button>
+        <button id="thr-reset" type="button">Reset</button>
+      </div>
+      <div class="kpis" id="thr-kpis"></div>
+      <svg id="curve" class="chart" viewBox="0 0 640 170" role="img" aria-label="Precision and recall against threshold"></svg>
+      <div class="legend"><span><i style="background:#c4512c"></i>Precision</span><span><i style="background:#3f4d8a"></i>Recall</span><span><i style="background:#241c16"></i>Selected threshold</span></div>
+    </section>
+
+    <section class="panel wide">
+      <h2>Live traffic · last 30 minutes</h2>
+      <svg id="traffic" class="chart" viewBox="0 0 640 170" role="img" aria-label="Payments and alerts per minute"></svg>
+      <div class="legend"><span><i style="background:#d9cdb8"></i>Payments</span><span><i style="background:#e3b15a"></i>Medium</span><span><i style="background:#c4512c"></i>High</span></div>
+      <div class="kpis" id="traffic-kpis" style="margin-top:10px"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Who raised the High alerts</h2>
+      <div id="sources"></div>
+      <h2 style="margin-top:16px">High alerts by merchant category</h2>
+      <div id="cats"></div>
+    </section>
+
+    <section class="panel half">
+      <h2>Analyst feedback loop</h2>
+      <div class="kpis" id="fb-kpis"></div>
+      <h2 style="margin-top:14px">Analyst-confirmed precision (blocked ÷ reviewed)</h2>
+      <div id="confirmed"></div>
+      <div class="slider-row" style="margin-top:12px">
+        <button id="btn-retrain" class="primary" type="button">Retrain with feedback</button>
+        <span class="meta" id="retrain-stage">idle</span>
+      </div>
+      <div id="retrain-result"></div>
+      <pre class="joblog hidden" id="retrain-log"></pre>
+      <p class="note">Approve and Block decisions become training labels (Block = fraud, Approve = genuine) at 5× weight. BankSim rows from the validation and test days are left out, so the old and new model are judged on the same unseen payments. The new version replaces the serving model only if its test PR-AUC is not worse.</p>
+    </section>
+
+    <section class="panel half">
+      <h2>Anomaly detector · Isolation Forest</h2>
+      <div class="kpis" id="an-kpis"></div>
+      <p class="note">Unsupervised: it learned only what genuine payments look like and never saw a fraud label, so it can flag new kinds of fraud nobody has labelled yet. Because it is noisier, it can send a payment to the review queue (Medium) but never raises a High alert on its own.</p>
+    </section>
+
+    <section class="panel full">
+      <h2>Data drift · live inputs vs training days (PSI)</h2>
+      <div class="tbl-scroll"><table class="tbl-mon" id="drift"></table></div>
+      <p class="note">Population Stability Index compares how each input is distributed live against the training days, using training deciles as bins. Below 0.1 is stable, 0.1–0.25 is worth watching, and above 0.25 means live traffic no longer looks like the training data, so the model should be retrained.</p>
+    </section>
+
+    <section class="panel full">
+      <h2>Model versions</h2>
+      <div class="tbl-scroll"><table class="tbl-mon" id="history"></table></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">RT-FAAS model monitoring · refreshes every 5 seconds</footer>
+  <script src="/js/api.js"></script>
+  <script src="/js/monitor.js"></script>
+</body>
+</html>

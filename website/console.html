@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Live console | RT-FAAS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560&family=Figtree:wght@400;560;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="desk">
+  <div class="grain" aria-hidden="true"></div>
+  <header class="nav-float">
+    <a class="logo" href="/">RT<span>·</span>FAAS</a>
+    <nav>
+      <a href="/">Home</a>
+      <a class="active" href="/console">Live console</a>
+      <a href="/search">Search &amp; audit</a>
+      <a href="/monitor">Model monitor</a>
+    </nav>
+    <a class="nav-cta" href="/search">Audit log</a>
+  </header>
+
+  <div class="toolbar">
+    <div class="toolbar-left">
+      <h1>Live console</h1>
+      <span id="conn" class="pill bad">Offline</span>
+      <span class="meta">BankSim · Madrid</span>
+      <span class="meta">p95 <b id="p95">—</b> ms</span>
+      <span class="meta">feed <b id="feed-count">0</b></span>
+      <span class="meta">alerts <b id="alert-count">0</b></span>
+      <span class="meta">model <b id="model-name">—</b></span>
+    </div>
+    <div class="toolbar-right">
+      <button id="btn-stream" type="button">Play BankSim</button>
+      <button id="btn-fraud" type="button">Next labeled fraud</button>
+    </div>
+  </div>
+  <p id="banner" class="banner hidden"></p>
+
+  <main class="console">
+    <section>
+      <h2>Live feed</h2>
+      <div id="live-list" class="list"></div>
+    </section>
+    <section class="alert-col">
+      <h2>High-risk alerts</h2>
+      <div id="alert-list" class="list"></div>
+    </section>
+    <section>
+      <h2>Review queue</h2>
+      <div id="queue-list" class="list"></div>
+    </section>
+    <aside id="case">
+      <h2>Case file</h2>
+      <p class="muted">Select a transaction to inspect reasons and take a decision.</p>
+    </aside>
+  </main>
+
+  <footer class="site-footer">RT-FAAS analyst console</footer>
+  <script src="/js/api.js"></script>
+  <script src="/js/console.js"></script>
+</body>
+</html>

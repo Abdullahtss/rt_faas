@@ -1,0 +1,419 @@
+{
+  "trained_at": "2026-11-23 23:27:02",
+  "dataset": "bs140513_032310.csv (BankSim, Lopez-Rojas & Axelsson 2014)",
+  "rows": 594591,
+  "fraud_rows": 7200,
+  "fraud_rate": 0.01211,
+  "split": {
+    "method": "chronological",
+    "train_days": [
+      0,
+      119
+    ],
+    "validation_days": [
+      120,
+      139
+    ],
+    "test_days": [
+      140,
+      179
+    ]
+  },
+  "chosen_model": "gradient_boosting",
+  "threshold": 0.972,
+  "validation": {
+    "gradient_boosting": {
+      "name": "gradient_boosting",
+      "threshold": 0.972,
+      "pr_auc": 0.9568,
+      "roc_auc": 0.9994,
+      "precision": 0.9085,
+      "recall": 0.8688,
+      "f1": 0.8882,
+      "true_positives": 695,
+      "false_positives": 70,
+      "false_negatives": 105,
+      "true_negatives": 70979,
+      "alerts_per_1000": 10.65
+    }
+  },
+  "test": {
+    "model": {
+      "name": "ML: gradient_boosting",
+      "threshold": 0.972,
+      "pr_auc": 0.9633,
+      "roc_auc": 0.9994,
+      "precision": 0.9304,
+      "recall": 0.8606,
+      "f1": 0.8942,
+      "true_positives": 1377,
+      "false_positives": 103,
+      "false_negatives": 223,
+      "true_negatives": 146158,
+      "alerts_per_1000": 10.01
+    },
+    "anomaly": {
+      "name": "Isolation Forest (>= 99.5 pct)",
+      "threshold": 99.5,
+      "pr_auc": 0.1538,
+      "roc_auc": 0.9423,
+      "precision": 0.2465,
+      "recall": 0.1663,
+      "f1": 0.1986,
+      "true_positives": 266,
+      "false_positives": 813,
+      "false_negatives": 1334,
+      "true_negatives": 145448,
+      "alerts_per_1000": 7.3,
+      "fraud_missed_by_model_but_caught": 1
+    },
+    "rules_high": {
+      "name": "Rules (score >= 70)",
+      "threshold": 70.0,
+      "pr_auc": 0.069,
+      "roc_auc": 0.6935,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "true_positives": 0,
+      "false_positives": 14,
+      "false_negatives": 1600,
+      "true_negatives": 146247,
+      "alerts_per_1000": 0.09
+    },
+    "rules_medium": {
+      "name": "Rules (score >= 40)",
+      "threshold": 40.0,
+      "pr_auc": 0.069,
+      "roc_auc": 0.6935,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "true_positives": 0,
+      "false_positives": 92,
+      "false_negatives": 1600,
+      "true_negatives": 146169,
+      "alerts_per_1000": 0.62
+    }
+  },
+  "curve": [
+    {
+      "threshold": 0.05,
+      "precision": 0.4087,
+      "recall": 0.9975,
+      "alerts_per_1000": 26.41
+    },
+    {
+      "threshold": 0.1,
+      "precision": 0.4738,
+      "recall": 0.9931,
+      "alerts_per_1000": 22.68
+    },
+    {
+      "threshold": 0.15,
+      "precision": 0.5133,
+      "recall": 0.9912,
+      "alerts_per_1000": 20.9
+    },
+    {
+      "threshold": 0.2,
+      "precision": 0.5492,
+      "recall": 0.9906,
+      "alerts_per_1000": 19.52
+    },
+    {
+      "threshold": 0.25,
+      "precision": 0.5775,
+      "recall": 0.9869,
+      "alerts_per_1000": 18.49
+    },
+    {
+      "threshold": 0.3,
+      "precision": 0.5988,
+      "recall": 0.985,
+      "alerts_per_1000": 17.8
+    },
+    {
+      "threshold": 0.35,
+      "precision": 0.6192,
+      "recall": 0.9819,
+      "alerts_per_1000": 17.16
+    },
+    {
+      "threshold": 0.4,
+      "precision": 0.6327,
+      "recall": 0.9788,
+      "alerts_per_1000": 16.74
+    },
+    {
+      "threshold": 0.45,
+      "precision": 0.6502,
+      "recall": 0.9769,
+      "alerts_per_1000": 16.26
+    },
+    {
+      "threshold": 0.5,
+      "precision": 0.6658,
+      "recall": 0.9762,
+      "alerts_per_1000": 15.87
+    },
+    {
+      "threshold": 0.55,
+      "precision": 0.6778,
+      "recall": 0.9744,
+      "alerts_per_1000": 15.56
+    },
+    {
+      "threshold": 0.6,
+      "precision": 0.6949,
+      "recall": 0.9706,
+      "alerts_per_1000": 15.12
+    },
+    {
+      "threshold": 0.65,
+      "precision": 0.7083,
+      "recall": 0.9681,
+      "alerts_per_1000": 14.79
+    },
+    {
+      "threshold": 0.7,
+      "precision": 0.7317,
+      "recall": 0.9613,
+      "alerts_per_1000": 14.22
+    },
+    {
+      "threshold": 0.75,
+      "precision": 0.7512,
+      "recall": 0.955,
+      "alerts_per_1000": 13.76
+    },
+    {
+      "threshold": 0.8,
+      "precision": 0.769,
+      "recall": 0.9531,
+      "alerts_per_1000": 13.41
+    },
+    {
+      "threshold": 0.85,
+      "precision": 0.7993,
+      "recall": 0.9456,
+      "alerts_per_1000": 12.8
+    },
+    {
+      "threshold": 0.9,
+      "precision": 0.8385,
+      "recall": 0.925,
+      "alerts_per_1000": 11.94
+    },
+    {
+      "threshold": 0.95,
+      "precision": 0.8972,
+      "recall": 0.895,
+      "alerts_per_1000": 10.79
+    },
+    {
+      "threshold": 0.955,
+      "precision": 0.9043,
+      "recall": 0.8862,
+      "alerts_per_1000": 10.6
+    },
+    {
+      "threshold": 0.957,
+      "precision": 0.907,
+      "recall": 0.8838,
+      "alerts_per_1000": 10.54
+    },
+    {
+      "threshold": 0.959,
+      "precision": 0.9103,
+      "recall": 0.8819,
+      "alerts_per_1000": 10.48
+    },
+    {
+      "threshold": 0.961,
+      "precision": 0.9148,
+      "recall": 0.8794,
+      "alerts_per_1000": 10.4
+    },
+    {
+      "threshold": 0.963,
+      "precision": 0.9161,
+      "recall": 0.8731,
+      "alerts_per_1000": 10.31
+    },
+    {
+      "threshold": 0.965,
+      "precision": 0.9184,
+      "recall": 0.8719,
+      "alerts_per_1000": 10.27
+    },
+    {
+      "threshold": 0.967,
+      "precision": 0.9218,
+      "recall": 0.8688,
+      "alerts_per_1000": 10.2
+    },
+    {
+      "threshold": 0.969,
+      "precision": 0.927,
+      "recall": 0.8656,
+      "alerts_per_1000": 10.1
+    },
+    {
+      "threshold": 0.971,
+      "precision": 0.9298,
+      "recall": 0.8606,
+      "alerts_per_1000": 10.02
+    },
+    {
+      "threshold": 0.973,
+      "precision": 0.9321,
+      "recall": 0.8575,
+      "alerts_per_1000": 9.96
+    },
+    {
+      "threshold": 0.975,
+      "precision": 0.9375,
+      "recall": 0.8538,
+      "alerts_per_1000": 9.85
+    },
+    {
+      "threshold": 0.977,
+      "precision": 0.9413,
+      "recall": 0.8512,
+      "alerts_per_1000": 9.79
+    },
+    {
+      "threshold": 0.979,
+      "precision": 0.9434,
+      "recall": 0.8444,
+      "alerts_per_1000": 9.68
+    },
+    {
+      "threshold": 0.981,
+      "precision": 0.9457,
+      "recall": 0.8381,
+      "alerts_per_1000": 9.59
+    },
+    {
+      "threshold": 0.983,
+      "precision": 0.9548,
+      "recall": 0.8313,
+      "alerts_per_1000": 9.42
+    },
+    {
+      "threshold": 0.985,
+      "precision": 0.9576,
+      "recall": 0.8194,
+      "alerts_per_1000": 9.26
+    },
+    {
+      "threshold": 0.987,
+      "precision": 0.9599,
+      "recall": 0.8075,
+      "alerts_per_1000": 9.1
+    },
+    {
+      "threshold": 0.989,
+      "precision": 0.9679,
+      "recall": 0.7906,
+      "alerts_per_1000": 8.84
+    },
+    {
+      "threshold": 0.991,
+      "precision": 0.9734,
+      "recall": 0.7769,
+      "alerts_per_1000": 8.64
+    },
+    {
+      "threshold": 0.993,
+      "precision": 0.978,
+      "recall": 0.7506,
+      "alerts_per_1000": 8.31
+    },
+    {
+      "threshold": 0.995,
+      "precision": 0.9834,
+      "recall": 0.705,
+      "alerts_per_1000": 7.76
+    },
+    {
+      "threshold": 0.997,
+      "precision": 0.994,
+      "recall": 0.6194,
+      "alerts_per_1000": 6.74
+    },
+    {
+      "threshold": 0.999,
+      "precision": 1.0,
+      "recall": 0.37,
+      "alerts_per_1000": 4.0
+    }
+  ],
+  "feedback": {
+    "used": 5,
+    "blocked": 4,
+    "approved": 1,
+    "weight": 5.0,
+    "reviewed": 5,
+    "excluded_eval_days": 0,
+    "missing_features": 0
+  },
+  "top_features": [
+    {
+      "feature": "category=transportation",
+      "weight": 0.7874
+    },
+    {
+      "feature": "log_amount",
+      "weight": 0.3471
+    },
+    {
+      "feature": "implied_speed",
+      "weight": 0.0477
+    },
+    {
+      "feature": "merchant_id=M1053599405",
+      "weight": 0.0327
+    },
+    {
+      "feature": "category=food",
+      "weight": 0.0308
+    },
+    {
+      "feature": "log_gap_seconds",
+      "weight": 0.013
+    },
+    {
+      "feature": "amount_z",
+      "weight": 0.0124
+    },
+    {
+      "feature": "merchant_id=M980657600",
+      "weight": 0.0117
+    },
+    {
+      "feature": "merchant_id=M1946091778",
+      "weight": 0.0078
+    },
+    {
+      "feature": "history_count",
+      "weight": 0.0074
+    },
+    {
+      "feature": "merchant_id=M480139044",
+      "weight": 0.0073
+    },
+    {
+      "feature": "amount_over_mean",
+      "weight": 0.0073
+    }
+  ],
+  "train_seconds": 141.8,
+  "version": 2,
+  "promotion": {
+    "promoted": true,
+    "note": "PR-AUC 0.9633 vs 0.9645: kept or improved",
+    "previous_pr_auc": 0.9645
+  }
+}
